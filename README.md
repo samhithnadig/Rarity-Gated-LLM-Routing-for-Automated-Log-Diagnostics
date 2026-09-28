@@ -130,6 +130,4 @@ See the paper for the full method, methodology and limitations.
 ```
 
 ## License
-
-Add a license file before publishing (MIT is a common default for portfolio
-code).
+MIT

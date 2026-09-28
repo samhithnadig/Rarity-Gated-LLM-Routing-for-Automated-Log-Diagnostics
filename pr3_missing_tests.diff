@@ -1,0 +1,23 @@
+diff --git a/textkit/core.py b/textkit/core.py
+index 335e8a4..0dd865f 100644
+--- a/textkit/core.py
++++ b/textkit/core.py
+@@ -25,6 +25,18 @@ def to_snake_case(text: str) -> str:
+     return "_".join(text.strip().lower().split())
+ 
+ 
++def strip_punctuation(text: str) -> str:
++    """Remove common punctuation characters from text.
++
++    Args:
++        text: The input string.
++
++    Returns:
++        The string with punctuation removed.
++    """
++    return "".join(c for c in text if c.isalnum() or c.isspace())
++
++
+ def capitalize_words(text: str) -> str:
+     return " ".join(w.capitalize() for w in text.split())
+ 

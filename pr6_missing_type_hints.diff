@@ -1,0 +1,45 @@
+diff --git a/tests/test_core.py b/tests/test_core.py
+index e562bb1..7020747 100644
+--- a/tests/test_core.py
++++ b/tests/test_core.py
+@@ -6,6 +6,7 @@ from textkit.core import (
+     capitalize_words,
+     build_config,
+     safe_int,
++    slugify,
+ )
+ 
+ 
+@@ -38,3 +39,7 @@ def test_build_config():
+ def test_safe_int():
+     assert safe_int("42") == 42
+     assert safe_int("nope", fallback=-1) == -1
++
++
++def test_slugify():
++    assert slugify("Hello World") == "hello-world"
+diff --git a/textkit/core.py b/textkit/core.py
+index 352f4d9..5abdb33 100644
+--- a/textkit/core.py
++++ b/textkit/core.py
+@@ -85,6 +85,20 @@ def safe_int(text: str, fallback: int = 0) -> int:
+         return fallback
+ 
+ 
++def slugify(text, separator="-"):
++    """Convert text into a URL-friendly slug.
++
++    Args:
++        text: The input string.
++        separator: The character to join words with.
++
++    Returns:
++        The slugified string.
++    """
++    cleaned = "".join(c for c in text.lower() if c.isalnum() or c.isspace())
++    return separator.join(cleaned.split())
++
++
+ def truncate(text: str, max_len: int) -> str:
+     """Truncate text to a maximum length, appending an ellipsis if cut.
+ 

@@ -1,0 +1,29 @@
+10.6s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+18.8s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+24.6s 3 0.00s - to python to disable frozen modules.
+26.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+
+33.8s 6 0.00s - ✅ Cell 1 executed successfully with an 80/20 train/test split!
+34.9s 7 0.00s - Train Features Shape: (40000, 42), Test Features Shape: (10000, 42)
+41.7s 8 0.00s - 🏋️‍♂️ Training models across 7 folds...
+43.2s 9 -> Processing Fold 1/7
+45.0s 10 -> Processing Fold 2/7
+51.6s 11 -> Processing Fold 3/7
+64.1s 12 -> Processing Fold 4/7
+66.4s 13 -> Processing Fold 5/7
+70.2s 14 -> Processing Fold 6/7
+79.8s 15 -> Processing Fold 7/7
+94.0s 16 0.00s - ✅ Training complete!
+
+102.9s 18 0.00s - ⚙️ Tuning ensemble weights and class thresholds...
+109.1s 19 ==================================================
+123.8s 20 0.00s - 🏆 LOCAL IN-HOUSE BALANCED ACCURACY: 0.9947
+124.9s 21 ==================================================
+
+129.6s 23 0.00s - 🔮 UNSEEN HOLD-OUT TEST BALANCED ACCURACY: 0.99542
+132.2s 24 ==================================================
+134.4s 25 0.00s - 🧹 Cleaned directory!
+139.4s 26 0.00s - 📁 Created 'submission.csv' with shape: (10000, 2)
+
+151.8s 28 0.00s - Current output directory contents:
+154.9s 29 ['__notebook__.ipynb', 'submission.csv']

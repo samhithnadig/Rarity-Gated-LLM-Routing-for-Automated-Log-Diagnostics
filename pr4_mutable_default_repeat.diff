@@ -1,0 +1,50 @@
+diff --git a/tests/test_core.py b/tests/test_core.py
+index 44f20c0..1159ab6 100644
+--- a/tests/test_core.py
++++ b/tests/test_core.py
+@@ -1,4 +1,11 @@
+-from textkit.core import word_count, to_snake_case, truncate, merge_options, capitalize_words
++from textkit.core import (
++    word_count,
++    to_snake_case,
++    truncate,
++    merge_options,
++    capitalize_words,
++    build_config,
++)
+ 
+ 
+ def test_word_count():
+@@ -21,3 +28,7 @@ def test_merge_options():
+ 
+ def test_capitalize_words():
+     assert capitalize_words("hello world") == "Hello World"
++
++
++def test_build_config():
++    assert build_config({"debug": True}) == {"debug": True}
+diff --git a/textkit/core.py b/textkit/core.py
+index 0dd865f..bea577a 100644
+--- a/textkit/core.py
++++ b/textkit/core.py
+@@ -55,6 +55,20 @@ def merge_options(overrides: dict, base: dict = {}) -> dict:
+     return base
+ 
+ 
++def build_config(overrides: dict, defaults: dict = {}) -> dict:
++    """Build a config dict by layering overrides on top of defaults.
++
++    Args:
++        overrides: Values that take priority.
++        defaults: The fallback values.
++
++    Returns:
++        The combined config dict.
++    """
++    defaults.update(overrides)
++    return defaults
++
++
+ def truncate(text: str, max_len: int) -> str:
+     """Truncate text to a maximum length, appending an ellipsis if cut.
+ 

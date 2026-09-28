@@ -1,0 +1,8 @@
+5.2s 1 0.00s - 🌐 Downloading external embeddings from remote cache...
+125.3s 2 0.00s - ---------------------------------------------------------------------
+125.3s 3 0.00s - ConnectionError                          Traceback (most recent call last)
+125.3s 4 0.00s - Cell In[3], line 6
+125.3s 5 0.00s - ----> 6 resp = requests.get(url, timeout=120)
+125.3s 6 0.00s - requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='cache.example.com', port=443): Read timed out. (read timeout=120)
+125.4s 7 0.00s - ❌ Aborting: could not fetch external embeddings after 120s
+125.5s 8 0.00s - 🧹 Cleaned directory!

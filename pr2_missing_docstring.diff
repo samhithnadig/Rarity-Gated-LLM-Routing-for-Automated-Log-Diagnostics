@@ -1,0 +1,33 @@
+diff --git a/tests/test_core.py b/tests/test_core.py
+index 7ff0a6c..44f20c0 100644
+--- a/tests/test_core.py
++++ b/tests/test_core.py
+@@ -1,4 +1,4 @@
+-from textkit.core import word_count, to_snake_case, truncate, merge_options
++from textkit.core import word_count, to_snake_case, truncate, merge_options, capitalize_words
+ 
+ 
+ def test_word_count():
+@@ -17,3 +17,7 @@ def test_truncate():
+ 
+ def test_merge_options():
+     assert merge_options({"a": 1}) == {"a": 1}
++
++
++def test_capitalize_words():
++    assert capitalize_words("hello world") == "Hello World"
+diff --git a/textkit/core.py b/textkit/core.py
+index d92d2e7..335e8a4 100644
+--- a/textkit/core.py
++++ b/textkit/core.py
+@@ -25,6 +25,10 @@ def to_snake_case(text: str) -> str:
+     return "_".join(text.strip().lower().split())
+ 
+ 
++def capitalize_words(text: str) -> str:
++    return " ".join(w.capitalize() for w in text.split())
++
++
+ def merge_options(overrides: dict, base: dict = {}) -> dict:
+     """Merge override values into a base options dict.
+ 
